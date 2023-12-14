@@ -10,5 +10,5 @@ services:
     logging:
       driver: json-file
     environment:
-      - VNC_PW=password
+      - VNC_PW=<password>
       - pac_file=<pac_file_URL>
