@@ -1,0 +1,33 @@
+version: '2.4'
+services:
+  ubuntu:
+    image: 'sstarzh/kasm-custom:latest'
+    build:
+      context: .
+      shm_size: 512m
+    restart: unless-stopped
+    user: root
+    logging:
+      driver: json-file
+    environment:
+      - VNC_PW=password
+      - pac_file=<pac_file_URL>
+    volumes:
+      - $CONFIG_STORE
+      - shared-data
+    networks:
+      lannet:
+        ipv4_address: <ip_addr>
+volumes:
+  shared-data:
+    driver: local
+networks:
+  lannet:
+    driver: bridge
+    driver_opts:
+      com.cradlepoint.network.bridge.uuid: <uuid>
+    ipam:
+      driver: default
+      config:
+        - subnet: <subnet>
+          gateway: <gw>
