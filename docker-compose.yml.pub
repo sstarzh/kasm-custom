@@ -25,7 +25,7 @@ networks:
   lannet:
     driver: bridge
     driver_opts:
-      com.cradlepoint.network.bridge.uuid: <uuid>
+      com.cradlepoint.network.bridge.uuid: 00000000-0d93-319d-8220-4a1fb0372b51
     ipam:
       driver: default
       config:
